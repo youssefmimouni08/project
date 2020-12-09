@@ -1,0 +1,62 @@
+<div class="content">
+  <form>
+    <div class="form-group form-inline">
+      Search:
+      <input
+        class="form-control ml-2"
+        placeholder="name,artist or album"
+        type="text"
+        [formControl]="filter"
+      />
+    </div>
+  </form>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Song</th>
+        <th scope="col">Artist</th>
+        <th scope="col">Album</th>
+        <th scope="col">Release Date</th>
+        <th scope="col">Spotify</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let song of songs$ | async; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>
+          <ngb-highlight
+            [result]="song.name"
+            [term]="filter.value"
+          ></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight
+            [result]="song.artist"
+            [term]="filter.value"
+          ></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight
+            [result]="song.album"
+            [term]="filter.value"
+          ></ngb-highlight>
+        </td>
+        <td>
+          {{ song.date | date }}
+        </td>
+        <td>
+          <iframe
+            [src]="song.link | safe"
+            width="100%"
+            height="80px"
+            frameborder="0"
+            allowtransparency="true"
+            allow="encrypted-media"
+          ></iframe>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

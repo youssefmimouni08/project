@@ -1,0 +1,16 @@
+<link
+  href="https://fonts.googleapis.com/css?family=Arvo&display=swap"
+  rel="stylesheet"
+/>
+
+<nav role="navigation" class="primary-navigation">
+  <header>
+    <h1>Songs <span>Library</span></h1>
+  </header>
+  <ul>
+    <li><a [routerLink]="['/list']">Songs List</a></li>
+    <li><a id="right" href="#">Add a new Song</a></li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
