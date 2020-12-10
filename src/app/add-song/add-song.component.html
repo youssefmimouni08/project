@@ -1,0 +1,84 @@
+<div class="content">
+  <form [formGroup]="songForm" (ngSubmit)="addSong()">
+    <div class="form-group">
+      <label for="name">Song Name</label>
+      <input type="text" class="form-control" placeholder="Enter song name" formControlName="name" [ngClass]="{
+          'is-invalid':
+            songForm.controls.name.invalid && songForm.controls.name.touched,
+          'is-valid': songForm.controls.name.valid
+        }" />
+      <small id="artistError" class="text-danger"
+        *ngIf="songForm.controls.name.invalid && songForm.controls.name.touched">
+        Required and must be at least 3 characters long.
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="artist">Artist</label>
+      <input type="text" class="form-control" placeholder="Enter artist name" formControlName="artist" [ngClass]="{
+          'is-invalid':
+            songForm.controls.artist.invalid &&
+            songForm.controls.artist.touched,
+          'is-valid': songForm.controls.artist.valid
+        }" />
+      <small id="artistError" class="text-danger" *ngIf="
+          songForm.controls.artist.invalid && songForm.controls.artist.touched
+        ">
+        Required and must be at least 3 characters long.
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="album">Album</label>
+      <input type="text" class="form-control" placeholder="Enter album name" formControlName="album" [ngClass]="{
+          'is-invalid':
+            songForm.controls.album.invalid && songForm.controls.album.touched,
+          'is-valid': songForm.controls.album.valid
+        }" />
+      <small id="artistError" class="text-danger" *ngIf="
+          songForm.controls.album.invalid && songForm.controls.album.touched
+        ">
+        Required and must be at least 3 characters long.
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="album">Spotify Link</label>
+      <input type="text" class="form-control" placeholder="Enter song link" formControlName="link" [ngClass]="{
+          'is-invalid':
+            songForm.controls.link.invalid && songForm.controls.link.touched,
+          'is-valid': songForm.controls.link.valid
+        }" />
+      <small id="artistError" class="text-danger" *ngIf="
+          songForm.controls.link.invalid && songForm.controls.link.touched
+        ">
+        This needs to be a valid URL.
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="date">Song Release Date</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker"
+          formControlName="date" [ngClass]="{
+            'is-invalid':
+              songForm.controls.date.invalid && songForm.controls.date.touched,
+            'is-valid': songForm.controls.date.valid
+          }" />
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+        </div>
+      </div>
+      <small id="artistError" class="text-danger"
+        *ngIf="songForm.controls.date.invalid && songForm.controls.date.touched">
+        A Release date is required.
+      </small>
+    </div>
+
+    <div class="sub">
+      <ngx-spinner [name]="spinnerConfirm" bdColor="rgba(51,51,51,0.8)" size="large" color="#fff"
+        type="square-jelly-box ">
+        <p style="color: white;margin-top:50px"> Adding Song ... </p>
+      </ngx-spinner>
+      <button type="submit" class="btn btn-primary" [disabled]="songForm.invalid">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>

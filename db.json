@@ -39,6 +39,30 @@
       "date": "01/19/2018",
       "link": "https://open.spotify.com/embed/track/6ZWYN5GsObNdeT6K3j3V5E",
       "album": "Veteran"
+    },
+    {
+      "name": "Campfire",
+      "artist": "4lfa",
+      "album": "Go Fast",
+      "date": "12/24/2020",
+      "link": "https://open.spotify.com/embed/track/1x74WDI68nRTGsOtUSjFdh",
+      "id": 6
+    },
+    {
+      "name": "On me",
+      "artist": "Lil Baby",
+      "album": "On Me",
+      "date": "12/17/2020",
+      "link": "https://open.spotify.com/embed/track/4Iedi94TIaB2GGb1nMB68v",
+      "id": 7
+    },
+    {
+      "name": "Way Out",
+      "artist": "Jack Harlow",
+      "album": "Way Out",
+      "date": "12/8/2020",
+      "link": "https://open.spotify.com/embed/track/6rLi6PyWXu1rPlShuIZpj6",
+      "id": 8
     }
   ]
 }

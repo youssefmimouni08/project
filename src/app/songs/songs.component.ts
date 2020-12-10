@@ -1,8 +1,6 @@
-import { Component, OnInit, PipeTransform } from '@angular/core';
-import { DecimalPipe } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { ToastrService } from 'ngx-toastr';
 import { Song } from '../model/Song';
 import { SongsService } from '../shared/songs.service';
 
@@ -14,30 +12,40 @@ import { SongsService } from '../shared/songs.service';
 })
 export class SongsComponent implements OnInit {
 
-  songs$: Observable<Song[]>;
+  songs$: Song[] = [];
   SONGS: Song[] = [];
   filter = new FormControl('');
 
-  constructor(pipe: DecimalPipe, private songService: SongsService) {
+  constructor(private songService: SongsService, private toastr: ToastrService) {
     this.songService.getListSongs().subscribe(data => {
       this.SONGS = data;
-      this.songs$ = this.filter.valueChanges.pipe(
-        startWith(''),
-        map(text => this.search(text, pipe))
-      );
+      this.songs$ = data;
     });
   }
 
   ngOnInit(): void {
+    this.filter.valueChanges.subscribe(text => {
+      this.songs$ = this.SONGS.filter(song => {
+        const term = text.toLowerCase();
+        return song.name.toLowerCase().includes(term)
+          || song.artist.toLowerCase().includes(term)
+          || song.album.toLowerCase().includes(term);
+      });
+    })
   }
 
-  search(text: string, pipe: PipeTransform): Song[] {
-    return this.SONGS.filter(song => {
-      const term = text.toLowerCase();
-      return song.name.toLowerCase().includes(term)
-        || song.artist.toLowerCase().includes(term)
-        || song.album.toLowerCase().includes(term);
-    });
+
+  deleteSong(index, id) {
+    this.songs$.splice(index, 1);
+    this.SONGS.splice(index, 1);
+    this.songService.deleteSong(id).subscribe(success => { },
+      error => { },
+      () => {
+        this.toastr.success('The Song has been deleted!', 'Success !', {
+          progressBar: true,
+          timeOut: 3500
+        });
+      });
   }
 
 }
