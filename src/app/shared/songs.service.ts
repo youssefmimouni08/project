@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {Song} from '../model/Song';
 
 
 @Injectable({
@@ -22,5 +23,11 @@ export class SongsService {
   }
   deleteSong(songId): Observable<any> {
     return this.http.delete(this.songsUrl + songId);
+  }
+  getSongById(id: number){
+    return this.http.get<Song>(this.songsUrl + '/' + id);
+  }
+  updateSong(id: number, myObject: Song): Observable<any>{
+    return this.http.put<any>(this.songsUrl + '/' + id, myObject, this.httpOptions);
   }
 }

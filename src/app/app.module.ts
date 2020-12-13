@@ -12,13 +12,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AddSongComponent } from './add-song/add-song.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { UpdateSongComponent } from './update-song/update-song.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SongsComponent,
     SafePipe,
-    AddSongComponent
+    AddSongComponent,
+    UpdateSongComponent
   ],
   imports: [
     BrowserModule,

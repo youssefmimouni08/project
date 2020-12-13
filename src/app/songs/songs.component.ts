@@ -31,10 +31,8 @@ export class SongsComponent implements OnInit {
           || song.artist.toLowerCase().includes(term)
           || song.album.toLowerCase().includes(term);
       });
-    })
+    });
   }
-
-
   deleteSong(index, id) {
     this.songs$.splice(index, 1);
     this.SONGS.splice(index, 1);

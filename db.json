@@ -9,18 +9,10 @@
       "album": "Sun's Tirade"
     },
     {
-      "id": 2,
-      "name": "Goosebumps",
-      "artist": "Travis Scott",
-      "date": "12/13/2016",
-      "link": "https://open.spotify.com/embed/track/6gBFPUFcJLzWGx4lenP6h2",
-      "album": "Birds in the trap sing McKnight"
-    },
-    {
       "id": 3,
       "name": "God's Plan",
       "artist": "Drake",
-      "date": "01/19/2018",
+      "date": "06/29/2018",
       "link": "https://open.spotify.com/embed/track/6DCZcSspjsKoFjzjrWoCdn",
       "album": "Scorpion"
     },
@@ -63,6 +55,22 @@
       "date": "12/8/2020",
       "link": "https://open.spotify.com/embed/track/6rLi6PyWXu1rPlShuIZpj6",
       "id": 8
+    },
+    {
+      "name": "Babushka Boi",
+      "artist": "A$ap Rocky",
+      "album": "Babushka Boi",
+      "date": "8/28/2019",
+      "link": "https://open.spotify.com/embed/album/3zOkSAbg9o7gQ3yXtZhx5v",
+      "id": 9
+    },
+    {
+      "name": "Sundress",
+      "artist": "A$ap Rocky",
+      "album": "Sundress",
+      "date": "11/20/2018",
+      "link": "https://open.spotify.com/embed/track/2aPTvyE09vUCRwVvj0I8WK",
+      "id": 10
     }
   ]
 }

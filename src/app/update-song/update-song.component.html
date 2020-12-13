@@ -1,0 +1,56 @@
+<div class="content">
+
+  <h4> Update </h4>
+  <form #f="ngForm" (ngSubmit)="updateSong()" >
+    <div class="form-group">
+      <label for="name">Song Name</label>
+      <input type="text" class="form-control" placeholder="Enter song name" name="name" [(ngModel)]="song.name" #name="ngModel" required minlength="3"
+       />
+      <small id="nameError" class="text-danger"
+             *ngIf="f.controls.name.invalid && f.controls.name.touched">
+        Required and must be at least 3 characters long.
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="artist">Artist</label>
+      <input type="text" class="form-control" placeholder="Enter artist name" name="artist" [(ngModel)]="song.artist" #artist="ngModel" required minlength="3"
+        />
+      <small id="artistError" class="text-danger"
+             *ngIf="f.controls.artist.invalid && f.controls.artist.touched">
+        Required and must be at least 3 characters long.
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="album">Album</label>
+      <input type="text" class="form-control" placeholder="Enter album name" name="album" [(ngModel)]="song.album" #album="ngModel" required minlength="3"   />
+      <small id="albumError" class="text-danger"
+             *ngIf="f.controls.album.invalid && f.controls.album.touched">
+        Required and must be at least 3 characters long.
+      </small>
+    </div>
+    <div class="form-group">
+      <label for="album">Spotify Link</label>
+      <input type="text" class="form-control" placeholder="Enter song link" name="link" [(ngModel)]="song.link" #link="ngModel"  required />
+      <small id="linkError" class="text-danger"
+             *ngIf="f.controls.link.invalid && f.controls.link.touched">
+        Requiring a valid link from spotify
+      </small>
+    </div>
+    <!--<div class="form-group">
+      <label for="date">Song Release Date</label>
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd"  ngbDatepicker  name="date" [(ngModel)]="song.date" #date="ngModel"  #d="ngbDatepicker"/>
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+        </div>
+      </div>
+    </div>-->
+
+    <div class="sub">
+
+      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
